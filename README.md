@@ -1,6 +1,6 @@
 # skills
 
-A curated, opinionated set of skills for AI coding agents — a six-stage delivery pipeline plus the craft skills that support it.
+A curated, opinionated set of skills for AI coding agents — a staged delivery pipeline plus the craft skills that support it.
 
 Distilled from three sources that each solved a different part of the problem: [mattpocock/skills](https://github.com/mattpocock/skills) (the SDLC pipeline and engineering craft), [obra/superpowers](https://github.com/obra/superpowers) (process discipline and evidence gates) and [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) (fresh-context subagents and persistent state). Vetted, merged, renamed, and trimmed so that exactly one skill owns each job.
 
@@ -9,9 +9,10 @@ Runtime-neutral: no skill here names a specific tool. Works with Claude Code, Co
 ## The pipeline
 
 ```
-/vision → /blueprint → /roadmap → /refine → /implement → /verify
+(/chart) → /vision → /blueprint → /roadmap → /refine → /implement → /verify
 ```
 
+- **`/chart`** — *optional stage 0.* When the destination itself is fogged, map the work as decision tickets — grilling, research, prototype, task — and resolve them one per session until the way is clear.
 - **`/vision`** — interrogate the idea until intent, constraints and non-goals are explicit. Nothing gets designed here.
 - **`/blueprint`** — turn intent into a technical design: boundaries, seams, data model, risks, one rejected alternative.
 - **`/roadmap`** — *optional.* Order epics by risk with real dependency edges. Skip for single-epic work.
@@ -28,7 +29,9 @@ Everything the pipeline learns lands in one place in the project you are working
 ```
 .pipeline/
   REQUIREMENTS.md   decisions (with rationale), vocabulary, open questions
+  CHART.md          the decision map, when work started fogged
   VISION.md         BLUEPRINT.md   ROADMAP.md
+  map/              one file per decision ticket
   work/             one file per work item
   adr/              hard-to-reverse architectural trade-offs
 ```
@@ -39,7 +42,7 @@ A fresh agent reads `REQUIREMENTS.md` and knows what was already settled. That i
 
 Model-invoked — they fire whenever they apply, inside any stage or on their own.
 
-`diagnosing-bugs` · `tdd` · `domain-modeling` · `codebase-design` · `prototype` · `research` · `resolving-merge-conflicts`
+`diagnosing-bugs` · `tdd` · `domain-modeling` · `codebase-design` · `grilling` · `prototype` · `research` · `resolving-merge-conflicts`
 
 ## Install
 

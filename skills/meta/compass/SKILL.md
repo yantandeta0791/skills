@@ -22,6 +22,7 @@ Check git state too: an in-progress merge or rebase, or a branch with uncommitte
 
 | Situation | Skill |
 |---|---|
+| Work is huge and the way there is fogged — decisions outnumber answers | `/chart` |
 | Idea is vague, or you are guessing at intent | `/vision` |
 | Intent is clear, design is not | `/blueprint` |
 | Design is clear, work spans weeks or subsystems | `/roadmap` |
@@ -33,6 +34,7 @@ Check git state too: an in-progress merge or rebase, or a branch with uncommitte
 
 | Situation | Skill |
 |---|---|
+| A plan or decision needs stress-testing through live questioning | `grilling` |
 | Something is broken, failing, or slow | `diagnosing-bugs` |
 | About to build logic with branches, parsing, money or auth | `tdd` |
 | A term keeps meaning two things | `domain-modeling` |
@@ -44,11 +46,11 @@ Check git state too: an in-progress merge or rebase, or a branch with uncommitte
 
 ### 3. Say why, then hand off
 
-Name the skill, say in one sentence what evidence pointed there, and invoke it. Do not narrate the whole map.
+Name the skill and say in one sentence what evidence pointed there. Do not narrate the whole map. A craft skill you can apply directly; a pipeline stage is user-invoked — tell the user which command to run and stop.
 
 ## Rules
 
-**Do not run the work.** This skill routes and stops. If the answer is `/blueprint`, invoke `/blueprint` — do not start designing here.
+**Do not run the work.** This skill routes and stops. If the answer is `/blueprint`, say so — do not start designing here.
 
 **Skipping stages is normal.** The pipeline is not a gate sequence. A one-file fix goes straight to `/implement` and `/verify`. A single-epic feature skips `/roadmap`. Ceremony that earns nothing is the failure mode this repo exists to avoid — say so when a stage should be skipped.
 

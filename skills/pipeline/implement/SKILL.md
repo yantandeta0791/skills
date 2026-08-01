@@ -24,11 +24,11 @@ Confirm the set with the user before dispatching if more than two items will run
 
 ### 2. Dispatch one subagent per item
 
-Give each subagent everything it needs and nothing more:
+Mark each item `building` in its file as you dispatch it, and if the epic's row in `.pipeline/ROADMAP.md` still reads `todo`, set it `building` too. Then give each subagent everything it needs and nothing more:
 
 - the work item file, verbatim
 - the relevant extract of `.pipeline/BLUEPRINT.md` — interfaces, data model, its test seam
-- the Vocabulary and Decisions it must respect from `.pipeline/REQUIREMENTS.md`
+- the Domain Vocabulary and Decisions it must respect from `.pipeline/REQUIREMENTS.md`
 - the repo's coding standards, and the instruction to match surrounding code
 - the explicit instruction: **write the failing test first at the named seam, then make it pass**
 - the instruction to report back deviations, not to silently absorb them
@@ -51,7 +51,7 @@ Do not commit until the item's own tests pass. Do not push or open a pull reques
 
 ### 5. Close each item out
 
-Mark the item `review` in its file. Update the epic's status in `.pipeline/ROADMAP.md` if one exists. Report to the user what was built, what deviated, and what remains.
+Mark the item `review` in its file — `/verify` moves it to `done`, and the epic with it. Report to the user what was built, what deviated, and what remains.
 
 ## The failure mode to avoid
 

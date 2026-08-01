@@ -12,7 +12,9 @@ Most bad software is built correctly from a misunderstood premise. This stage ex
 
 ## When to run
 
-At the start of any non-trivial work. If you can already write the spec without guessing at anything, skip straight to `/blueprint`.
+At the start of any non-trivial work. If you can already write the spec without guessing at anything, skip straight to `/blueprint`. If the opposite is true — the destination itself is fogged, and the open decisions are too many for one conversation — run `/chart` first and come back here once the way is clear.
+
+The interview below is the `grilling` craft skill applied to a whole piece of work; its rules — one question at a time, recommend an answer, look up facts but ask for decisions — apply throughout.
 
 ## Process
 
@@ -63,11 +65,20 @@ Write `.pipeline/VISION.md`:
 ## Constraints
 <hard limits: deadline, runtime, team, systems>
 
+## Users
+<who touches this, skill level, device, frequency>
+
+## Failure modes
+<what happens when it breaks, who notices, what failure is acceptable>
+
+## Prior art
+<what was tried before and what exists in the codebase that overlaps>
+
 ## Open questions
 <what remains unresolved, and who can resolve it>
 ```
 
-Then seed `.pipeline/REQUIREMENTS.md` — the continuous state file every later stage reads and writes:
+Then create `.pipeline/REQUIREMENTS.md` — the continuous state file every later stage reads and writes — if it does not already exist; a `/chart` run may have created it first. Append to an existing file, never overwrite it:
 
 ```markdown
 # Requirements
@@ -75,8 +86,8 @@ Then seed `.pipeline/REQUIREMENTS.md` — the continuous state file every later 
 ## Decisions
 | # | Decision | Rationale | Stage | Date |
 
-## Vocabulary
-| Term | Means | Does not mean |
+## Domain Vocabulary
+<one entry per agreed term — format owned by the domain-modeling skill>
 
 ## Open questions
 | # | Question | Blocks | Owner |

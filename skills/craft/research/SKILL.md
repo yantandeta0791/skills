@@ -1,6 +1,6 @@
 ---
 name: research
-description: Investigate a question against primary sources and capture the findings as a cited Markdown note. Use when the user asks to research a topic, wants API or library facts established, says "find out how X works", or when a design decision is blocked on something nobody has actually checked.
+description: Investigate a question against primary sources and capture the findings as a cited Markdown note. Use when the user asks to research a topic, wants API or library facts established, says "find out how X works", or when a design decision is blocked on an external fact — outside this codebase, answerable from sources — that nobody has actually checked.
 ---
 
 # Research

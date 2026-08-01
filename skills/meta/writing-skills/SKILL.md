@@ -17,7 +17,7 @@ Every skill in this repo follows these. New skills that break them get rejected.
 
 ```
 skills/
-  pipeline/<name>/SKILL.md    # the staged workflow: /vision, /blueprint,
+  pipeline/<name>/SKILL.md    # the staged workflow: /chart, /vision, /blueprint,
                               # /roadmap, /refine, /implement, /verify
   craft/<name>/SKILL.md       # techniques applied inside any stage
   meta/<name>/SKILL.md        # skills about the skills

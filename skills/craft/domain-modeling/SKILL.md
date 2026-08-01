@@ -21,7 +21,7 @@ Merely *reading* `.pipeline/REQUIREMENTS.md` for vocabulary is not this skill �
 └── src/
 ```
 
-`.pipeline/REQUIREMENTS.md` is the single continuous state file. Every pipeline stage reads and writes it. The domain model lives there in a `## Domain Vocabulary` section alongside requirements and decisions.
+`.pipeline/REQUIREMENTS.md` is the single continuous state file. Every pipeline stage reads and writes it. The domain model lives there in a `## Domain Vocabulary` section alongside the decisions and open questions.
 
 ADRs are a separate concept and live in their own files under `.pipeline/adr/`. A decision recorded in `REQUIREMENTS.md` is a running note; an ADR is a durable, numbered record of a hard-to-reverse choice.
 

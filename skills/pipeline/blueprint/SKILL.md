@@ -31,7 +31,7 @@ Apply the `codebase-design` craft skill. The load-bearing decisions are:
 - **Data model.** The shapes that flow through the system, and which states are representable. Prefer making bad states unrepresentable over validating against them.
 - **Test seams.** Where does this get tested, and through what interface? Decide now — this is what `/implement` will drive TDD against.
 
-If the domain vocabulary is fuzzy, run the `domain-modeling` craft skill before continuing and record the agreed terms in the Vocabulary table of `REQUIREMENTS.md`.
+If the domain vocabulary is fuzzy, run the `domain-modeling` craft skill before continuing and record the agreed terms in the `## Domain Vocabulary` section of `REQUIREMENTS.md`.
 
 ### 3. Name the risks
 
@@ -80,7 +80,7 @@ Significant architectural choices become ADRs in `.pipeline/adr/NNNN-<slug>.md`.
 
 ## Exit criteria
 
-- [ ] Every requirement in `VISION.md` is addressed or explicitly deferred
+- [ ] Every outcome and constraint in `VISION.md` is addressed or explicitly deferred
 - [ ] Test seams are named — `/implement` knows where TDD attaches
 - [ ] At least one rejected alternative is recorded
 - [ ] Reuse of existing code is stated, not implied

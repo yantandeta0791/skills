@@ -83,7 +83,7 @@ State plainly what you could not verify. An unverified area named is useful; an 
 
 ## Next
 
-If blocked: fix, then re-run `/verify`. If passing: mark the work items `done`, update `.pipeline/ROADMAP.md`, and move to the next epic via `/refine`.
+If blocked: fix, then re-run `/verify`. If passing: mark the work items `done`; when the epic's last item passes, mark the epic `done` in `.pipeline/ROADMAP.md`; then move to the next epic via `/refine`.
 
 ---
 *Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) and [obra/superpowers](https://github.com/obra/superpowers), MIT.*

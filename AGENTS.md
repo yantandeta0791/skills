@@ -1,15 +1,16 @@
 # Agent skills
 
-A curated set of skills for AI coding agents: a six-stage delivery pipeline plus the craft skills that support it. Runtime-neutral — Claude Code, Codex, Gemini CLI, Copilot, Cursor, OpenCode and anything else that reads `SKILL.md` folders or this file.
+A curated set of skills for AI coding agents: a staged delivery pipeline — six core stages plus an optional fog-clearing stage 0 — and the craft skills that support it. Runtime-neutral — Claude Code, Codex, Gemini CLI, Copilot, Cursor, OpenCode and anything else that reads `SKILL.md` folders or this file.
 
 ## The pipeline
 
 ```
-/vision → /blueprint → /roadmap → /refine → /implement → /verify
+(/chart) → /vision → /blueprint → /roadmap → /refine → /implement → /verify
 ```
 
 | Stage | Does | Produces |
 |---|---|---|
+| **`/chart`** | *Optional stage 0.* Maps fogged work as decision tickets — grilling, research, prototype, task — resolved one per session until the way is clear. | `.pipeline/CHART.md`, `.pipeline/map/*.md` |
 | **`/vision`** | Interrogates the idea until intent, constraints and non-goals are explicit. No design. | `.pipeline/VISION.md` |
 | **`/blueprint`** | Turns intent into a technical design: boundaries, seams, data model, risks. | `.pipeline/BLUEPRINT.md` |
 | **`/roadmap`** | *Optional.* Orders epics with dependency edges. Skip for single-epic work. | `.pipeline/ROADMAP.md` |
@@ -28,7 +29,7 @@ Unsure where you are? `/compass` routes.
 One continuous file, `.pipeline/REQUIREMENTS.md`, written and read by every stage:
 
 - **Decisions** — what was decided, and *why*. The rationale is the part that survives.
-- **Vocabulary** — agreed domain terms, and what they explicitly do not mean.
+- **Domain vocabulary** — agreed domain terms, and what they explicitly do not mean.
 - **Open questions** — unresolved, with owners.
 
 Hard-to-reverse architectural trade-offs get numbered ADRs in `.pipeline/adr/`.
@@ -45,6 +46,7 @@ Model-invoked — reach for them whenever they apply, inside any stage or on the
 | `tdd` | Red-green-refactor, one vertical slice at a time. |
 | `domain-modeling` | Sharpening terminology until words mean one thing. |
 | `codebase-design` | Deep modules: small interfaces, clean seams, testable through the interface. |
+| `grilling` | Stress-testing a plan or decision — one question at a time, recommendation attached. |
 | `prototype` | Answering a design question with throwaway runnable code. |
 | `research` | Settling an external question against primary sources, with citations. |
 | `resolving-merge-conflicts` | In-progress merges and rebases, resolved by intent. |
@@ -71,9 +73,9 @@ These apply to every skill here.
 
 ```
 skills/
-  pipeline/   vision, blueprint, roadmap, refine, implement, verify
+  pipeline/   chart, vision, blueprint, roadmap, refine, implement, verify
   craft/      diagnosing-bugs, tdd, domain-modeling, codebase-design,
-              prototype, research, resolving-merge-conflicts
+              grilling, prototype, research, resolving-merge-conflicts
   meta/       compass, writing-skills
 ```
 

@@ -28,7 +28,7 @@ The two branches produce very different artifacts — getting this wrong wastes 
 
 5. **Surface the state.** After every action (logic) or on every variant switch (UI), print or render the full relevant state so the user can see what changed.
 
-6. **Capture it when done.** Fold any validated decision into the real code, then keep the prototype itself as a **primary source**: commit it to a throwaway branch, out of main, and leave a pointer to that branch on the implementation issue. Capture the answer too — the verdict and the question it settled — in the issue or a commit. The main branch keeps only the validated decision.
+6. **Capture it when done.** Fold any validated decision into the real code, then keep the prototype itself as a **primary source**: commit it to a throwaway branch, out of main, and leave a pointer to that branch on the implementation issue — or wherever the project records work. Capture the answer too — the verdict and the question it settled — in the issue or a commit. The main branch keeps only the validated decision.
 
 ## Relationship to the pipeline
 

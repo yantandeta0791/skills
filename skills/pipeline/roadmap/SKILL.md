@@ -16,6 +16,8 @@ Skip if the work is one epic — a single coherent capability that one person ca
 
 Run it when: multiple subsystems change, the work spans more than roughly a week, several people work in parallel, or the ordering is genuinely unobvious and getting it wrong is expensive.
 
+One more boundary: this stage orders epics you can already name. If naming them would be guessing — the open decisions outnumber the answers — the problem is fog, not sequencing. Run `/chart` first.
+
 ## Process
 
 ### 1. Find the epics
@@ -58,7 +60,7 @@ Write `.pipeline/ROADMAP.md`:
 <why this sequence — especially what risk the early epics retire>
 ```
 
-Status is one of `todo`, `refining`, `building`, `done`. This file is the progress ledger: update the status as epics move, and record ordering changes in the Decisions table of `.pipeline/REQUIREMENTS.md` with the reason.
+Status is one of `todo`, `building`, `done` — `/implement` sets `building` when the epic's first item dispatches, `/verify` sets `done` when its last item passes. Record ordering changes in the Decisions table of `.pipeline/REQUIREMENTS.md` with the reason.
 
 ## Exit criteria
 
