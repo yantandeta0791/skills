@@ -38,6 +38,7 @@ Check git state too: an in-progress merge or rebase, or a branch with uncommitte
 | A term keeps meaning two things | `domain-modeling` |
 | Code is hard to test, or a seam is in the wrong place | `codebase-design` |
 | A design question needs an answer before committing to it | `prototype` |
+| An external fact is unverified — an API, a limit, a version's behaviour | `research` |
 | Mid-merge or mid-rebase with conflicts | `resolving-merge-conflicts` |
 | Writing or fixing a skill in this repo | `writing-skills` |
 

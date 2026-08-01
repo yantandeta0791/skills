@@ -39,7 +39,7 @@ A fresh agent reads `REQUIREMENTS.md` and knows what was already settled. That i
 
 Model-invoked — they fire whenever they apply, inside any stage or on their own.
 
-`diagnosing-bugs` · `tdd` · `domain-modeling` · `codebase-design` · `prototype` · `resolving-merge-conflicts`
+`diagnosing-bugs` · `tdd` · `domain-modeling` · `codebase-design` · `prototype` · `research` · `resolving-merge-conflicts`
 
 ## Install
 

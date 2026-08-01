@@ -46,6 +46,7 @@ Model-invoked — reach for them whenever they apply, inside any stage or on the
 | `domain-modeling` | Sharpening terminology until words mean one thing. |
 | `codebase-design` | Deep modules: small interfaces, clean seams, testable through the interface. |
 | `prototype` | Answering a design question with throwaway runnable code. |
+| `research` | Settling an external question against primary sources, with citations. |
 | `resolving-merge-conflicts` | In-progress merges and rebases, resolved by intent. |
 
 ## Meta
@@ -72,7 +73,7 @@ These apply to every skill here.
 skills/
   pipeline/   vision, blueprint, roadmap, refine, implement, verify
   craft/      diagnosing-bugs, tdd, domain-modeling, codebase-design,
-              prototype, resolving-merge-conflicts
+              prototype, research, resolving-merge-conflicts
   meta/       compass, writing-skills
 ```
 
