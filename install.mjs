@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 // Links this repo's skills into an agent runtime's skills directory.
 // Symlinks by default, so `git pull` updates every runtime at once.
+// Also prunes stale links: a skill renamed or removed in this repo
+// leaves a broken symlink behind in every runtime it was installed to.
+// Prune finds and removes those automatically.
 //
 //   node install.mjs                 # installs to every detected runtime
 //   node install.mjs --target claude # one runtime
@@ -9,9 +12,18 @@
 //   node install.mjs --dry-run       # show what would happen
 //   node install.mjs --list          # show known runtimes and their paths
 
-import { existsSync, mkdirSync, readdirSync, rmSync, cpSync, symlinkSync, lstatSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readlinkSync,
+  rmSync,
+  cpSync,
+  symlinkSync,
+  lstatSync,
+} from "node:fs";
 import { homedir } from "node:os";
-import { join, resolve, dirname } from "node:path";
+import { join, resolve, dirname, isAbsolute, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPO = dirname(fileURLToPath(import.meta.url));
@@ -43,6 +55,45 @@ const isLink = (p) => {
     return false;
   }
 };
+
+// Remove symlinks in `dirPath` that point somewhere inside this repo's
+// skills/ tree but whose target no longer exists — leftovers from a skill
+// renamed or deleted upstream (e.g. chart -> wayfinder left a dangling
+// `chart` link in every runtime it had been installed to). Never touches
+// a link pointing outside this repo, or anything that isn't a symlink —
+// so a real directory or an unrelated skill is never at risk.
+function pruneStaleLinks(dirPath, dryRun) {
+  if (!existsSync(dirPath)) return [];
+
+  let entries;
+  try {
+    entries = readdirSync(dirPath, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  const pruned = [];
+  for (const entry of entries) {
+    const full = join(dirPath, entry.name);
+    if (!isLink(full)) continue;
+
+    let target;
+    try {
+      target = readlinkSync(full);
+    } catch {
+      continue;
+    }
+    if (!isAbsolute(target)) target = resolve(dirname(full), target);
+
+    const pointsIntoRepo = target === SKILLS || target.startsWith(SKILLS + sep);
+    if (!pointsIntoRepo) continue; // not ours — leave it alone
+    if (existsSync(target)) continue; // still resolves — not stale
+
+    pruned.push(entry.name);
+    if (!dryRun) rmSync(full, { force: true });
+  }
+  return pruned;
+}
 
 if (has("list")) {
   console.log("Known runtimes:\n");
@@ -95,6 +146,7 @@ if (explicitDir && explicitDir !== true) {
 
 const dryRun = has("dry-run");
 const copy = has("copy");
+let totalPruned = 0;
 
 for (const { name, path } of dirs) {
   console.log(`\n${name} → ${path}`);
@@ -114,9 +166,20 @@ for (const { name, path } of dirs) {
 
     console.log(`  ${action.padEnd(8)} ${skill.name}`);
   }
+
+  const stale = pruneStaleLinks(path, dryRun);
+  totalPruned += stale.length;
+  for (const staleName of stale) {
+    console.log(`  ${"prune".padEnd(8)} ${staleName}  (renamed or removed upstream)`);
+  }
 }
 
 console.log(
   `\n${dryRun ? "Would install" : "Installed"} ${skills.length} skills to ${dirs.length} runtime(s)` +
     (copy ? " (copied)" : " (symlinked — git pull updates them all)"),
 );
+if (totalPruned > 0) {
+  console.log(
+    `${dryRun ? "Would prune" : "Pruned"} ${totalPruned} stale link(s) left by renamed or removed skills.`,
+  );
+}
