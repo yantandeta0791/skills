@@ -22,7 +22,7 @@ If the working directory has no meaningful code — empty repo, scaffold only �
 
 ### 2. Build the knowledge graph
 
-Invoke the `understand` skill — vendored in this package — on the project root. It scans the codebase, batches the files, and produces `knowledge-graph.json` in the project's data directory (`.ua/`), powering an interactive dashboard for exploring architecture, components and relationships. On a repeat run it updates incrementally rather than rebuilding.
+Invoke the `understand` skill from the [Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) plugin (`understand-anything:understand`) on the project root. If the plugin is not installed, stop and tell the user: "/discover requires the Understand-Anything plugin — install it from https://github.com/Egonex-AI/Understand-Anything, then re-run." Do not attempt to survey the codebase by hand instead. It scans the codebase, batches the files, and produces `knowledge-graph.json` in the project's data directory (`.ua/`), powering an interactive dashboard for exploring architecture, components and relationships. On a repeat run it updates incrementally rather than rebuilding.
 
 Let it run to completion; it reports its own phase-by-phase progress. For very large repos, pass its `--exclude` patterns for generated or vendored directories rather than letting them pollute the graph.
 
@@ -72,4 +72,4 @@ Downstream: `/wayfinder` consults the map so codebase-answerable questions never
 `/wayfinder` if the way is fogged; `/vision` if intent needs the interview; `/blueprint` when the work is already well-defined.
 
 ---
-*Codebase graphing by [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything), MIT — vendored as the `understand` skill.*
+*Codebase graphing by [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything), MIT — an external plugin dependency, not bundled here.*

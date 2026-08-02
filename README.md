@@ -12,7 +12,7 @@ Runtime-neutral: no skill here names a specific tool. Works with Claude Code, Co
 (/discover) → (/wayfinder) → /vision → /blueprint → /roadmap → /refine → /implement → /verify
 ```
 
-- **`/discover`** — *optional prelude.* Survey an existing codebase: build its interactive knowledge graph with the vendored `understand` skill, distill the result into a codebase map the rest of the pipeline plans against.
+- **`/discover`** — *optional prelude.* Survey an existing codebase: build its interactive knowledge graph with the [Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) plugin's `understand` skill (installed separately), distill the result into a codebase map the rest of the pipeline plans against.
 - **`/wayfinder`** — *optional stage 0.* When the destination itself is fogged, map the work as decision tickets — grilling, research, prototype, task — and resolve them one per session until the way is clear.
 - **`/vision`** — interrogate the idea until intent, constraints and non-goals are explicit. Nothing gets designed here.
 - **`/blueprint`** — turn intent into a technical design: boundaries, seams, data model, risks, one rejected alternative.
@@ -44,7 +44,7 @@ A fresh agent reads `REQUIREMENTS.md` and knows what was already settled. That i
 
 Model-invoked — they fire whenever they apply, inside any stage or on their own.
 
-`diagnosing-bugs` · `tdd` · `domain-modeling` · `codebase-design` · `grilling` · `prototype` · `research` · `resolving-merge-conflicts` · `understand`
+`diagnosing-bugs` · `tdd` · `domain-modeling` · `codebase-design` · `grilling` · `prototype` · `research` · `resolving-merge-conflicts`
 
 ## Install
 
@@ -80,4 +80,4 @@ Every skill here follows these, and [`writing-skills`](./skills/meta/writing-ski
 
 ## Credits and licence
 
-MIT. Adapted with thanks from [mattpocock/skills](https://github.com/mattpocock/skills), [obra/superpowers](https://github.com/obra/superpowers), [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) and [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) (vendored unmodified as the `understand` skill) — all MIT.
+MIT. Adapted with thanks from [mattpocock/skills](https://github.com/mattpocock/skills), [obra/superpowers](https://github.com/obra/superpowers) and [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) — all MIT. `/discover` depends on the [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) plugin (MIT), installed separately.

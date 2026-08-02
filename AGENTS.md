@@ -51,7 +51,7 @@ Model-invoked — reach for them whenever they apply, inside any stage or on the
 | `prototype` | Answering a design question with throwaway runnable code. |
 | `research` | Settling an external question against primary sources, with citations. |
 | `resolving-merge-conflicts` | In-progress merges and rebases, resolved by intent. |
-| `understand` | Building an interactive knowledge graph of a codebase — the engine behind `/discover`. |
+| `understand` | Building an interactive knowledge graph of a codebase — the engine behind `/discover`. External dependency: the [Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) plugin, installed separately. |
 
 ## Meta
 
@@ -78,8 +78,7 @@ skills/
   pipeline/   discover, wayfinder, vision, blueprint, roadmap, refine,
               implement, verify
   craft/      diagnosing-bugs, tdd, domain-modeling, codebase-design,
-              grilling, prototype, research, resolving-merge-conflicts,
-              understand
+              grilling, prototype, research, resolving-merge-conflicts
   meta/       compass, writing-skills
 ```
 
@@ -87,4 +86,4 @@ Install with `node install.mjs` — see [README.md](./README.md).
 
 ## Credits
 
-Adapted from [mattpocock/skills](https://github.com/mattpocock/skills), [obra/superpowers](https://github.com/obra/superpowers), [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) and [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) (vendored as `understand`). All MIT.
+Adapted from [mattpocock/skills](https://github.com/mattpocock/skills), [obra/superpowers](https://github.com/obra/superpowers) and [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core). All MIT. `/discover` depends on the [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) plugin (MIT), installed separately.
