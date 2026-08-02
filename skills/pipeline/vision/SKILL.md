@@ -12,7 +12,7 @@ Most bad software is built correctly from a misunderstood premise. This stage ex
 
 ## When to run
 
-At the start of any non-trivial work. If you can already write the spec without guessing at anything, skip straight to `/blueprint`. If the opposite is true — the destination itself is fogged, and the open decisions are too many for one conversation — run `/chart` first and come back here once the way is clear.
+At the start of any non-trivial work. If you can already write the spec without guessing at anything, skip straight to `/blueprint`. If the opposite is true — the destination itself is fogged, and the open decisions are too many for one conversation — run `/wayfinder` first and come back here once the way is clear. On an unsurveyed existing codebase, `/discover` comes before either.
 
 The interview below is the `grilling` craft skill applied to a whole piece of work; its rules — one question at a time, recommend an answer, look up facts but ask for decisions — apply throughout.
 
@@ -78,7 +78,7 @@ Write `.pipeline/VISION.md`:
 <what remains unresolved, and who can resolve it>
 ```
 
-Then create `.pipeline/REQUIREMENTS.md` — the continuous state file every later stage reads and writes — if it does not already exist; a `/chart` run may have created it first. Append to an existing file, never overwrite it:
+Then create `.pipeline/REQUIREMENTS.md` — the continuous state file every later stage reads and writes — if it does not already exist; a `/wayfinder` run may have created it first. Append to an existing file, never overwrite it:
 
 ```markdown
 # Requirements

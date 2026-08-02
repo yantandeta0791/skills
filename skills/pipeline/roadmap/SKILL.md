@@ -16,7 +16,7 @@ Skip if the work is one epic — a single coherent capability that one person ca
 
 Run it when: multiple subsystems change, the work spans more than roughly a week, several people work in parallel, or the ordering is genuinely unobvious and getting it wrong is expensive.
 
-One more boundary: this stage orders epics you can already name. If naming them would be guessing — the open decisions outnumber the answers — the problem is fog, not sequencing. Run `/chart` first.
+One more boundary: this stage orders epics you can already name. If naming them would be guessing — the open decisions outnumber the answers — the problem is fog, not sequencing. Run `/wayfinder` first.
 
 ## Process
 

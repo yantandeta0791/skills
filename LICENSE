@@ -6,6 +6,8 @@ Portions adapted from:
   mattpocock/skills   — Copyright (c) Matt Pocock, MIT License
   obra/superpowers    — Copyright (c) Jesse Vincent, MIT License
   open-gsd/gsd-core   — Copyright (c) Open GSD contributors, MIT License
+  Egonex-AI/Understand-Anything — Copyright (c) Egonex contributors, MIT License
+                        (vendored unmodified as skills/craft/understand)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

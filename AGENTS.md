@@ -1,16 +1,17 @@
 # Agent skills
 
-A curated set of skills for AI coding agents: a staged delivery pipeline — six core stages plus an optional fog-clearing stage 0 — and the craft skills that support it. Runtime-neutral — Claude Code, Codex, Gemini CLI, Copilot, Cursor, OpenCode and anything else that reads `SKILL.md` folders or this file.
+A curated set of skills for AI coding agents: a staged delivery pipeline — six core stages plus two optional preludes, codebase discovery and fog-clearing wayfinding — and the craft skills that support it. Runtime-neutral — Claude Code, Codex, Gemini CLI, Copilot, Cursor, OpenCode and anything else that reads `SKILL.md` folders or this file.
 
 ## The pipeline
 
 ```
-(/chart) → /vision → /blueprint → /roadmap → /refine → /implement → /verify
+(/discover) → (/wayfinder) → /vision → /blueprint → /roadmap → /refine → /implement → /verify
 ```
 
 | Stage | Does | Produces |
 |---|---|---|
-| **`/chart`** | *Optional stage 0.* Maps fogged work as decision tickets — grilling, research, prototype, task — resolved one per session until the way is clear. | `.pipeline/CHART.md`, `.pipeline/map/*.md` |
+| **`/discover`** | *Optional prelude.* Surveys an existing codebase — builds its knowledge graph via the `understand` skill, distills a codebase map. | `.pipeline/CODEBASE.md`, `.ua/knowledge-graph.json` |
+| **`/wayfinder`** | *Optional stage 0.* Maps fogged work as decision tickets — grilling, research, prototype, task — resolved one per session until the way is clear. | `.pipeline/MAP.md`, `.pipeline/map/*.md` |
 | **`/vision`** | Interrogates the idea until intent, constraints and non-goals are explicit. No design. | `.pipeline/VISION.md` |
 | **`/blueprint`** | Turns intent into a technical design: boundaries, seams, data model, risks. | `.pipeline/BLUEPRINT.md` |
 | **`/roadmap`** | *Optional.* Orders epics with dependency edges. Skip for single-epic work. | `.pipeline/ROADMAP.md` |
@@ -50,6 +51,7 @@ Model-invoked — reach for them whenever they apply, inside any stage or on the
 | `prototype` | Answering a design question with throwaway runnable code. |
 | `research` | Settling an external question against primary sources, with citations. |
 | `resolving-merge-conflicts` | In-progress merges and rebases, resolved by intent. |
+| `understand` | Building an interactive knowledge graph of a codebase — the engine behind `/discover`. |
 
 ## Meta
 
@@ -73,9 +75,11 @@ These apply to every skill here.
 
 ```
 skills/
-  pipeline/   chart, vision, blueprint, roadmap, refine, implement, verify
+  pipeline/   discover, wayfinder, vision, blueprint, roadmap, refine,
+              implement, verify
   craft/      diagnosing-bugs, tdd, domain-modeling, codebase-design,
-              grilling, prototype, research, resolving-merge-conflicts
+              grilling, prototype, research, resolving-merge-conflicts,
+              understand
   meta/       compass, writing-skills
 ```
 
@@ -83,4 +87,4 @@ Install with `node install.mjs` — see [README.md](./README.md).
 
 ## Credits
 
-Adapted from [mattpocock/skills](https://github.com/mattpocock/skills), [obra/superpowers](https://github.com/obra/superpowers) and [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core). All MIT.
+Adapted from [mattpocock/skills](https://github.com/mattpocock/skills), [obra/superpowers](https://github.com/obra/superpowers), [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) and [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) (vendored as `understand`). All MIT.

@@ -7,7 +7,7 @@ description: Interrogate the user about a plan, decision, or idea — one questi
 
 Interview the user relentlessly about every aspect of the thing until you reach shared understanding. Walk down each branch of the decision tree, resolving dependencies between decisions one by one.
 
-This is the technique behind every interview in this repo. `/vision` applies it to a whole piece of work at the start; a `/chart` grilling ticket applies it to a single fogged decision. Invoked bare, it stress-tests whatever the user puts in front of it — a plan, an architecture, a career move.
+This is the technique behind every interview in this repo. `/vision` applies it to a whole piece of work at the start; a `/wayfinder` grilling ticket applies it to a single fogged decision. Invoked bare, it stress-tests whatever the user puts in front of it — a plan, an architecture, a career move.
 
 ## The rules
 
@@ -33,7 +33,7 @@ Stop when you can restate the whole thing in a way the user reads and says "yes,
 
 ## Recording
 
-Grilling produces decisions, and decisions decay unless written down. Record each resolved decision — with its rationale — in the Decisions table of `.pipeline/REQUIREMENTS.md` if the project has one, or wherever the invoking context directs (a `/chart` ticket records its resolution on the ticket).
+Grilling produces decisions, and decisions decay unless written down. Record each resolved decision — with its rationale — in the Decisions table of `.pipeline/REQUIREMENTS.md` if the project has one, or wherever the invoking context directs (a `/wayfinder` ticket records its resolution on the ticket).
 
 ---
 *Adapted from [mattpocock/skills](https://github.com/mattpocock/skills), MIT.*

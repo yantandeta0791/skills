@@ -18,7 +18,7 @@ After `/vision`, or directly when requirements are already unambiguous. If the c
 
 ### 1. Ground in what exists
 
-Read `.pipeline/VISION.md` and `.pipeline/REQUIREMENTS.md`. Then survey the codebase for what already solves part of this — existing modules, helpers, patterns, conventions. Dispatch a subagent for the survey if the codebase is large; you want the conclusion, not the file dumps.
+Read `.pipeline/VISION.md`, `.pipeline/REQUIREMENTS.md`, and `.pipeline/CODEBASE.md` if `/discover` produced one — it already names the modules, conventions and concerns this design must respect. Then survey the codebase for what already solves part of this — existing modules, helpers, patterns, conventions. Dispatch a subagent for the survey if the codebase is large; you want the conclusion, not the file dumps.
 
 Design that ignores existing code produces a second way to do everything. State explicitly what you are reusing.
 

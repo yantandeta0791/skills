@@ -1,27 +1,29 @@
 ---
-name: chart
-description: Chart work too big and too foggy for one session as a shared map of decision tickets, then resolve them one at a time until the way is clear. Use when the destination itself is uncertain, when planning would be guessing, or to resume working through an existing chart. Produces .pipeline/CHART.md and .pipeline/map/ tickets.
+name: wayfinder
+description: Find the way through work too big and too foggy for one session — a shared map of decision tickets, resolved one at a time until the route is clear. Use when the destination itself is uncertain, when planning would be guessing, or to resume working through an existing map. Produces .pipeline/MAP.md and .pipeline/map/ tickets.
 disable-model-invocation: true
 ---
 
-# Chart
+# Wayfinder
 
 Stage 0 of the pipeline, and **optional**. It exists for exactly one situation: a loose idea has arrived that is too big for one session and wrapped in fog — the way from here to the destination is not visible yet.
 
-Every other stage assumes you know what you are building. `/vision` interviews toward a known kind of outcome; `/roadmap` orders epics you can already name. When you cannot yet name them — when the open questions outnumber the answers — charting comes first. Its tickets are **decision tickets**: questions whose resolution is a decision, not slices of a build to execute.
+Every other stage assumes you know what you are building. `/vision` interviews toward a known kind of outcome; `/roadmap` orders epics you can already name. When you cannot yet name them — when the open questions outnumber the answers — wayfinding comes first. Its tickets are **decision tickets**: questions whose resolution is a decision, not slices of a build to execute.
 
-**Plan, don't do.** The chart is done when nothing is left to decide before someone goes and builds the thing. The pull to just start building is usually the signal that the fog has cleared and it is time to leave this stage — not a reason to smuggle execution into it.
+**Plan, don't do.** The map is done when nothing is left to decide before someone goes and builds the thing. The pull to just start building is usually the signal that the fog has cleared and it is time to leave this stage — not a reason to smuggle execution into it.
 
 ## When to skip
 
-Skip if you can already state what done looks like and roughly how to get there — go to `/vision` or `/blueprint`. Most work never needs a chart. Run it when naming the epics would be guessing, when the destination itself is contested, or when the decisions span more sessions than one person can hold in their head.
+Skip if you can already state what done looks like and roughly how to get there — go to `/vision` or `/blueprint`. Most work never needs wayfinding. Run it when naming the epics would be guessing, when the destination itself is contested, or when the decisions span more sessions than one person can hold in their head.
+
+If the work sits on an existing codebase that nobody has surveyed, run `/discover` first — decision tickets written blind to what already exists ask questions the code has already answered.
 
 ## The map
 
-One file, `.pipeline/CHART.md`, loaded once per session. It is an **index, not a store** — each decision lives in exactly one place, its ticket; the map only gists and links.
+One file, `.pipeline/MAP.md`, loaded once per session. It is an **index, not a store** — each decision lives in exactly one place, its ticket; the map only gists and links.
 
 ```markdown
-# Chart: <name>
+# Map: <name>
 
 ## Destination
 <what reaching the end looks like — the spec, decision, or change this effort
@@ -40,7 +42,7 @@ is finding its way to. One or two lines; every session orients to it first.>
 - <gist> — <why it is beyond the destination> ([ticket](map/<nn>-<slug>.md) if one existed)
 ```
 
-If the project uses a real issue tracker, the map is an issue labelled for charting and the tickets are child issues with native blocking links — same structure, tracker-shaped. The file form here is the fallback that always works.
+If the project uses a real issue tracker, the map is an issue labelled for wayfinding and the tickets are child issues with native blocking links — same structure, tracker-shaped. The file form here is the fallback that always works.
 
 ## Tickets
 
@@ -91,22 +93,22 @@ Resolving a ticket clears fog ahead of it: graduate whatever is now specifiable 
 
 **One ticket per session**, resolved fully — except `research` tickets, which can run as parallel background subagents. This is the fresh-context discipline of `/implement` applied to decisions: a session that resolves three tickets resolves the third one badly.
 
-### Mode 1 — chart the map
+### Mode 1 — draw the map
 
 Invoked with a loose idea:
 
-1. **Name the destination first.** Run the `grilling` craft skill (with `domain-modeling` if terms are fuzzy) to pin down what this chart is finding its way to. The destination fixes the scope, so it is settled before anything else.
-2. **Map the frontier, breadth-first.** Grill again, fanning out across the whole space rather than deep on any thread, surfacing the open decisions and the first takeable steps. **If no fog surfaces** — the way is already clear — stop; you do not need a chart. Say so and route to `/vision`.
+1. **Name the destination first.** Run the `grilling` craft skill (with `domain-modeling` if terms are fuzzy) to pin down what this map is finding its way to. The destination fixes the scope, so it is settled before anything else.
+2. **Map the frontier, breadth-first.** Grill again, fanning out across the whole space rather than deep on any thread, surfacing the open decisions and the first takeable steps. Consult `.pipeline/CODEBASE.md` if `/discover` produced one — questions the codebase already answers do not become tickets. **If no fog surfaces** — the way is already clear — stop; you do not need a map. Say so and route to `/vision`.
 3. **Write the map**: destination and notes filled, decisions empty, fog sketched into Not yet specified.
 4. **Create the tickets you can specify now**, then wire blocking edges in a second pass, and challenge each edge once — false dependencies serialise decisions that could resolve in parallel.
 5. **Fire the research tickets** as parallel background subagents.
-6. Stop. Charting is one session's work; it hand-resolves nothing else.
+6. Stop. Drawing the map is one session's work; it hand-resolves nothing else.
 
 ### Mode 2 — work through the map
 
-Invoked with an existing chart, ticket optional:
+Invoked with an existing map, ticket optional:
 
-1. Load `CHART.md` — the low-res view, not every ticket body.
+1. Load `MAP.md` — the low-res view, not every ticket body.
 2. Choose the ticket: the one the user named, else the first frontier ticket. **Claim it.**
 3. Resolve it by its type, zooming into related or closed tickets on demand.
 4. Record the resolution on the ticket, set `Status: closed`, and append a one-line gist to Decisions so far.
@@ -114,10 +116,10 @@ Invoked with an existing chart, ticket optional:
 
 ## Leaving the stage
 
-The chart is done when no open tickets remain and the fog is empty — nothing left to decide. Then:
+The map is done when no open tickets remain and the fog is empty — nothing left to decide. Then:
 
-- Fold the durable decisions into the Decisions table of `.pipeline/REQUIREMENTS.md` with their rationale — creating the file from `/vision`'s seed template if this chart is the project's first act. During charting the map indexes decisions; after it, `REQUIREMENTS.md` is what every later stage reads.
-- Route forward: `/vision` if intent still needs the full interview, `/blueprint` if the chart's decisions already pin down intent, `/roadmap` if the cleared fog revealed multi-epic scope.
+- Fold the durable decisions into the Decisions table of `.pipeline/REQUIREMENTS.md` with their rationale — creating the file from `/vision`'s seed template if this map is the project's first act.
+- Route forward: `/vision` if intent still needs the full interview, `/blueprint` if the map's decisions already pin down intent, `/roadmap` if the cleared fog revealed multi-epic scope.
 
 ## Exit criteria
 

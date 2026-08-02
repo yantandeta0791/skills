@@ -22,7 +22,8 @@ Check git state too: an in-progress merge or rebase, or a branch with uncommitte
 
 | Situation | Skill |
 |---|---|
-| Work is huge and the way there is fogged — decisions outnumber answers | `/chart` |
+| An existing codebase nobody has surveyed — no `.pipeline/CODEBASE.md` | `/discover` |
+| Work is huge and the way there is fogged — decisions outnumber answers | `/wayfinder` |
 | Idea is vague, or you are guessing at intent | `/vision` |
 | Intent is clear, design is not | `/blueprint` |
 | Design is clear, work spans weeks or subsystems | `/roadmap` |
